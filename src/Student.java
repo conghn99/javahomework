@@ -1,19 +1,36 @@
-import java.time.LocalDate;
+public class Student {
+    private String id;
+    private String name;
+    private int age;
+    private String academicRank;
 
-public class Student extends User {
-    protected boolean isOnline;
-    protected String background;
+    public Student(String id, String name, String academicRank, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.academicRank = academicRank;
+    }
 
-    public Student(String id, String name, Gender gender, LocalDate birthday, String email, String phoneNumber, boolean isOnline, String background) {
-        super(id, name, gender, birthday, email, phoneNumber);
-        this.isOnline = isOnline;
-        this.background = background;
+    public String getId() {
+        return id;
+    }
+
+    public void setAcademicRank(String academicRank) {
+        this.academicRank = academicRank;
     }
 
     @Override
-    public void printInfo() {
-        super.printInfo();
-        System.out.println(this.isOnline);
-        System.out.println(this.background);
+    public String toString() {
+        return "Student{" +
+                "ID=" + id +
+                ", Name=" + name +
+                ", Age=" + age + 
+                ", Academic Rank=" + academicRank +
+                '}';
+    }
+
+    public boolean hasKeyword(String keyword) {
+        boolean result = this.id.contains(keyword);
+        return result;
     }
 }
